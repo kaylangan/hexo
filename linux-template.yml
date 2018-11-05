@@ -1,0 +1,30 @@
+jobs:
+- job: ${{ parameters.name }}
+  pool:
+    vmImage: ${{ parameters.vmImage }}
+
+  strategy:
+    matrix:
+      Node6:
+        NODE_VERSION: '6.x'
+      Node8:
+        NODE_VERSION: '8.x'
+      Node10:
+        NODE_VERSION: '10.x'
+
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: $(NODE_VERSION)
+    displayName: 'Install Node.js'
+
+  - script: |
+      npm install
+      npm run eslint
+      npm run test-cov
+    displayName: 'npm install and test'
+
+  - script: |
+      npm install coveralls
+      cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+    displayName: 'Coveralls'
