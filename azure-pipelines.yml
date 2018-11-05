@@ -12,6 +12,8 @@ strategy:
       NODE_VERSION: '6.x'
     Node8:
       NODE_VERSION: '8.x'
+    Node10:
+      NODE_VERSION: '10.x'
 
 steps:
 - task: NodeTool@0
@@ -23,9 +25,9 @@ steps:
     npm install
     npm run eslint
     npm run test-cov
-  displayName: 'npm install and build'
+  displayName: 'npm install and test'
 
 - script: |
     npm install coveralls
     cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-  displayName: 'npm install and build'
+  displayName: 'Coveralls'
