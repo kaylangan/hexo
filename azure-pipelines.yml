@@ -4,10 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 jobs:
-#- template: linux-template.yml
-#  parameters:
-#    name: Linux
-#    vmImage: ubuntu-16.04
+- template: linux-template.yml
+  parameters:
+    name: Linux
+    vmImage: ubuntu-16.04
  
 - template: windows-template.yml
   parameters:
