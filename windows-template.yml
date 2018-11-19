@@ -26,5 +26,8 @@ jobs:
   - script: |
       node --version
       npm --version
+    displayName: 'Print versions'
+    
+  - script: |
       npm test
-    displayName: 'Test'
+    displayName: 'Test'    
