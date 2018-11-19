@@ -23,9 +23,6 @@ jobs:
       npm install
       npm run eslint
       npm run test-cov
-    displayName: 'npm install and test'
-
-  - script: |
       npm install coveralls
       cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-    displayName: 'Coveralls'
+    displayName: 'npm install and test and Coveralls'
