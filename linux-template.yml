@@ -10,12 +10,13 @@ jobs:
       Node8:
         NODE_VERSION: '8.x'
       Node10:
-        NODE_VERSION: '10.x'
+        NODE_VERSION: '>10.x'
 
   steps:
   - task: NodeTool@0
     inputs:
       versionSpec: $(NODE_VERSION)
+      checkLatest: true
     displayName: 'Install Node.js'
 
   - script: |
