@@ -12,9 +12,10 @@ jobs:
         NODE_VERSION: '10.x'
 
   steps:
-  - task: PowerShell@2
+  - task: NodeTool@0
     inputs:
-      script: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version)
+      versionSpec: $(NODE_VERSION)
+      checkLatest: true
     displayName: 'Update Node.js'
 
   - script: |
