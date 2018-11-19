@@ -29,5 +29,6 @@ jobs:
     displayName: 'Print versions'
     
   - script: |
+      npm install mocha
       npm test
     displayName: 'Test'    
