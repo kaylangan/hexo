@@ -26,6 +26,6 @@ jobs:
     displayName: 'npm install and test'
 
   - script: |
-      npm install coveralls
+      npm install --no-optional coveralls
       cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
     displayName: 'Coveralls'
